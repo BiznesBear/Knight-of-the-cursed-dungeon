@@ -20,15 +20,16 @@ public class PlayerStats : MonoBehaviour
     public int level;
     public int flames;
 
-    public bool curses=false;
+    DungeonCurses curses;
 
     private void Start()
     {
+        curses = GameObject.FindGameObjectWithTag("DungeonGenerator").GetComponent<DungeonCurses>();
+        
         LoadingValues();
-        if (curses)
-        {
+        TakeDamage(curses.TakeHp);
 
-        }
+        
     }
     private void FixedUpdate()
     {

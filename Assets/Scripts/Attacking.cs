@@ -45,7 +45,7 @@ public class Attacking : MonoBehaviour
     }
     void SoulSpell()
     {
-        if (Input.GetKeyUp(KeyCode.F) && canFire)
+        if (Input.GetKeyUp(KeyCode.Space) && canFire)
         {
             canFire = false;
             Instantiate(damageLine, damageLineTransform.position, Quaternion.identity);

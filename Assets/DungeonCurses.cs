@@ -9,9 +9,10 @@ public class DungeonCurses : MonoBehaviour
 
     private GameObject player;
     private GameObject DamageLine;
-    private void Start()
+
+    public int TakeHp = 0;
+    private void Awake()
     {
-        DamageLine = GameObject.FindGameObjectWithTag("WeponController");
         player = GameObject.FindGameObjectWithTag("player");
         curseIndex = Random.Range(0,curses.Length);
         Debug.Log(curses[curseIndex]);
@@ -19,27 +20,21 @@ public class DungeonCurses : MonoBehaviour
         {
             player.GetComponent<PlayerStats>().scaler = 2;
         }
-        else if(curseIndex == 1)
-        {
-            DamageLine.GetComponent<DamageLine>().scaler = 2;
-        }
         else if (curseIndex == 2)
         {
-            TakeStartHp(10);
+            TakeHp = 10;
         }
         else if (curseIndex == 3)
         {
-            TakeStartHp(20);
+            TakeHp = 20;
         }
         else if (curseIndex == 4)
         {
-            TakeStartHp(30);
+            TakeHp = 30;
         }
 
     }
 
-    void TakeStartHp(int amount)
-    {
-        player.GetComponent<PlayerStats>().TakeDamage(amount);
-    }
+
+
 }
